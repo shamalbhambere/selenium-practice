@@ -1,0 +1,11 @@
+Feature: Free CRM create contacts
+
+Scenario: user is able to create new contact
+
+Given user is login and verify title
+When user is click on contacts 
+And click on new button
+Then user enter first name & last name
+Then click on save button
+Then verify new contact is created
+ 

@@ -1,0 +1,21 @@
+Feature: Free CRM Login Functionality
+
+Scenario: Free CRM login test scenario
+
+Given user is already on login page
+When  verify title of login page is Free CRM
+And  click on login button
+Then user enter username & password
+Then user click on login button
+Then user is on home page
+
+Scenario: user is able to create new contact
+
+Given  user is already on login 
+And verify title of home page 
+When user is click on contacts 
+And click on new button
+Then user enter first name & last name
+Then click on save button
+Then verify new contact is created
+ 

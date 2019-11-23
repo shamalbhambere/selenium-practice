@@ -1,0 +1,173 @@
+package Exdp;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import javax.swing.text.Element;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import PageObject.Text1;
+import PageObject.comments;
+import PageObject.dropdown1;
+import PageObject.dropdown2;
+import PageObject.dropdown3;
+
+public class exdptest {
+
+	public static WebDriver driver;
+   
+	@BeforeTest
+    public void initiateDriver()
+    {
+//    	System.setProperty("webdriver.gecko.driver","C:\\\\WorkDriver\\\\geckodriver-v0.24.0-win64\\\\geckodriveriver.exe");
+//	    driver = new FirefoxDriver();
+    System.setProperty("webdriver.chrome.driver", "C:\\WorkDriver\\chromedriver_win32\\chromedriver.exe");
+		driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+    	driver.manage().window().maximize();
+    	driver.get("http://localhost:3000");
+    	}
+	
+	@Test(priority=1)
+	public void Staticdropdown1() throws InterruptedException
+	{
+        dropdown1 sd=new dropdown1(driver);
+        sd.clickdrop("exdp-entry-form_action").click();
+        String controlID =  driver.findElement(By.xpath("//*[@id='exdp-entry-form_action']/div")).getAttribute("aria-controls");
+        System.out.println(controlID);
+        sd.getdrop(controlID, "2").click();
+	}
+	@Test(priority=2)
+	public void Textinput()
+	{
+		Text1 t1=new Text1(driver);
+		t1.getText().click();
+		t1.getText().sendKeys("am");
+		t1.getText().sendKeys(Keys.ARROW_DOWN);
+
+		t1.getText().sendKeys(Keys.ENTER);
+	}
+	@Test(priority=6)
+	public void dynamicdropdown() throws InterruptedException
+	{
+        dropdown2 sd=new dropdown2(driver);
+        sd.clickdrop("exdp-entry-form_type").click();
+        String controlID =  driver.findElement(By.xpath("//*[@id='exdp-entry-form_type']/div")).getAttribute("aria-controls");
+        System.out.println(controlID);
+        sd.getdrop(controlID, "1").click();
+	}
+	
+	@Test(priority=7)
+	public void dynadropdowm() throws InterruptedException
+	{
+        dropdown3 sd=new dropdown3(driver);
+        sd.clickdrop("exdp-entry-form_tif").click();
+        String controlID =  driver.findElement(By.xpath("//*[@id='exdp-entry-form_tif']/div")).getAttribute("aria-controls");
+        System.out.println(controlID);
+        sd.getdrop(controlID, "4").click();
+	}
+	
+	@Test(priority=4)
+	public void CheckpriceField()
+	{
+		WebElement price=driver.findElement(By.id("exdp-entry-form_price"));
+		price.sendKeys("20.3");
+		String pr=price.getAttribute("value");
+		float prc=Float.parseFloat(pr);
+		System.out.println(prc);
+		AssertDecimal(prc);
+	}
+	
+	private void AssertDecimal(float prc) {
+		// TODO Auto-generated method stub
+		if((prc-(int)prc)!=0)
+		    System.out.println("decimal value is there");
+		else
+		    System.out.println("decimal value is not there");
+
+	}	
+
+	@Test(priority=5)
+	public void checkstopprice()
+	{
+		WebElement stprice=driver.findElement(By.id("exdp-entry-form_stop_price"));
+		stprice.sendKeys("99.40");
+		String sp=stprice.getAttribute("value");
+		float prc=Float.parseFloat(sp);
+		System.out.println(prc);
+		AssertDecimal(prc);
+
+	}
+	@Test(priority=3)
+	public void checkqant()
+	{
+		WebElement abc=driver.findElement(By.id("exdp-entry-form_quantity"));
+		abc.sendKeys("100");
+		String x=abc.getAttribute("value");
+		int qa=Integer.parseInt(x);
+		System.out.println("Quantity is:" +qa);
+		AssertThan(qa);
+		
+		
+	}
+	@Test(priority=8)
+	public void comm()
+	{
+		comments c=new comments(driver);
+		c.commt().click();
+		c.commt().sendKeys("sddahaa dgaduihdo");
+	}
+	@Test(priority=9)
+	public void button()
+	{
+		driver.findElement(By.xpath("//button[@type='submit']")).click();
+	}
+	@Test(priority=10)
+	public void tabledata()
+	{
+	    WebElement data= (WebElement) driver.findElements(By.xpath("//*[@class='ag-theme-balham']/div/div/div[1]/div/div[1]/div[2]/div/div/div[9]"));
+	    List<WebElement> rows = data.findElements(By.tagName("col-id"));
+	    java.util.Iterator<WebElement> itr = rows.iterator();
+		while(itr.hasNext()) 
+		{
+			WebElement row = itr.next();
+			System.out.println(row.getText());
+	
+		}
+		    
+
+	}
+	
+	private void AssertThan(int qa) 
+	{
+		// TODO Auto-generated method stub
+		//if (assertComparableNullSafe(qa, "less than")) {
+			if ( qa < 1) {
+				System.out.println("Enter correct qantity");
+			}else if(qa > 999)
+			{
+				System.out.println("Qantity is outof boundary");
+			}
+			else
+			{
+				System.out.println("Qantity is successfully pass");
+			}
+		
+			
+	}
+
+	
+	
+}
