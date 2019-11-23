@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Loan Department">
+  <test thread-count="5" name="Personal Loan">
+    <classes>
+      <class name="Test.Basic">
+      <methods>
+         <include name="Demo"></include><!-- Use for Showing/adding only that method -->
+      </methods>
+      </class>
+      <class name="Test.Day2"/>
+      <class name="Test.Intro"/>
+    </classes>
+  </test> <!-- Test -->
+  <test name="Car Loan">
+  <classes>
+  <class name="Test.Carloan">
+  <methods>
+     <exclude name="MobileCarLogin"/><!-- Use for remove method-->
+  </methods>
+  </class>
+  </classes>
+  </test> 
+</suite> <!-- Suite -->
