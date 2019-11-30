@@ -44,17 +44,16 @@ public class createcontacts {
 
     @When("^click on new button$")
     public void click_on_new_button() {
-        
+
         driver.findElement(By.xpath("//*[@id='dashboard-toolbar']/div[2]/div/a/button")).click();
 
     }
-    
+
     @Then("^user enter \"(.*)\" and \"(.*)\" and \"(.*)\"$")
-    public void user_enter_first_name_last_name_position(String first,String last,String position) {
-       driver.findElement(By.name("first_name")).sendKeys(first);
+    public void user_enter_first_name_last_name_position(String first, String last, String position) {
+        driver.findElement(By.name("first_name")).sendKeys(first);
         driver.findElement(By.name("last_name")).sendKeys(last);
         driver.findElement(By.name("position")).sendKeys(position);
-
 
     }
 
@@ -63,5 +62,5 @@ public class createcontacts {
         driver.findElement(By.xpath("//*[@id='dashboard-toolbar']/div[2]/div/button[2]")).click();
         driver.close();
     }
- 
-    }
+
+}
