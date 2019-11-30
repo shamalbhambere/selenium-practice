@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="4" total="7" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2019-07-10T17:57:58Z" name="Suite" finished-at="2019-07-10T17:57:58Z" duration-ms="56">
+    <groups>
+      <group name="Smoke">
+        <method signature="Basic.Demo()[pri:0, instance:Test.Basic@17c386de]" name="Demo" class="Test.Basic"/>
+        <method signature="Basic.seleniumaatext()[pri:0, instance:Test.Basic@17c386de]" name="seleniumaatext" class="Test.Basic"/>
+        <method signature="Day2.Learn()[pri:0, instance:Test.Day2@5af97850]" name="Learn" class="Test.Day2"/>
+      </group> <!-- Smoke -->
+    </groups>
+    <test started-at="2019-07-10T17:57:58Z" name="Regression" finished-at="2019-07-10T17:57:58Z" duration-ms="56">
+      <class name="Test.Day2">
+        <test-method signature="Learn()[pri:0, instance:Test.Day2@5af97850]" started-at="2019-07-10T17:57:58Z" name="Learn" finished-at="2019-07-10T17:57:58Z" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Learn -->
+      </class> <!-- Test.Day2 -->
+      <class name="Test.Basic">
+        <test-method signature="Demo()[pri:0, instance:Test.Basic@17c386de]" started-at="2019-07-10T17:57:58Z" name="Demo" finished-at="2019-07-10T17:57:58Z" duration-ms="9" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Demo -->
+        <test-method signature="seleniumaatext()[pri:0, instance:Test.Basic@17c386de]" started-at="2019-07-10T17:57:58Z" name="seleniumaatext" finished-at="2019-07-10T17:57:58Z" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- seleniumaatext -->
+      </class> <!-- Test.Basic -->
+    </test> <!-- Regression -->
+  </suite> <!-- Suite -->
+</testng-results>

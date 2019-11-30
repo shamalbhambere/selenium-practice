@@ -1,0 +1,49 @@
+package stepDefinations;
+
+import org.openqa.selenium.WebDriver;
+
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+
+public class createContacts {
+	
+	WebDriver driver;
+	public createContacts(sharedriver sd) {
+		driver=sd.startbrowser();
+	}
+	
+	@Given("^user is landed on home page$")
+	public void user_is_landed_on_home_page() {
+		
+		
+	}
+
+	@When("^user is click on contacts$")
+	public void user_is_click_on_contacts() {
+		
+	}
+
+	@When("^click on new button$")
+	public void click_on_new_button() {
+		
+	}
+
+	@Then("^user enter first name & last name$")
+	public void user_enter_first_name_last_name() 
+	{
+		
+	}
+
+	@Then("^click on save button$")
+	public void click_on_save_button() {
+
+	}
+
+	@Then("^verify new contact is created$")
+	public void verify_new_contact_is_created() {
+		
+
+	}
+
+}
