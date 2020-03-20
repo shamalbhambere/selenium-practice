@@ -1,2 +1,0 @@
-INDEX VERSION 1.131+C:\workspace\selenium-practice\.metadata\.plugins\org.eclipse.jdt.core
-2994106663.index
