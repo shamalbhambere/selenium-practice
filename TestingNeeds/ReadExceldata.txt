@@ -29,3 +29,47 @@ public static Object[][] getTestData(String sheetName) {
 		}
 		return data;
 	}
+
+
+OR
+
+
+public class TestUtil {
+
+static Xls_Reader reader;
+
+public ArrayList<Object[]> getDataFromExcel(){
+
+ArrayList<Object[]> myData = new ArrayList<Object[]>();
+try{
+ reader = new Xls_Reader("Excel File Path");
+}
+catch(Exception e){
+e.printStackTrace();
+}
+
+for(int rowNum=2 ; rowNum <= reader.getRowCount("TestData") ; rowNum++){
+
+String fn = reader.getCellData("TestData", "firstname", rowNum);
+String ln = reader.getCellData("TestData", "lastname", rowNum);
+String address = reader.getCellData("TestData", "address", rowNum);
+String city = reader.getCellData("TestData", "city", rowNum);
+
+Object ob[] = {fn, ln, address, city};
+myData.add(ob);
+}
+return myData;
+}
+}
+
+@DataProvider
+public Iterator<Object[]> getTestData() {
+ArrayList<Object[]> testData = TestUtil.getDataFromExcel();
+return testData.iterator();
+}
+
+@Test(dataProvider="getTestData")
+public void ebayRegPageTest(String firatname, String lastname, String address, String city){
+
+
+}

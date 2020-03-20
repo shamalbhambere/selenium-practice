@@ -26,7 +26,7 @@ public class sharedriver {
 	@After
 	public void closebowser()
 	{
-		//driver.close();
+		driver.close();
 		//driver.quit();
 	
 	}

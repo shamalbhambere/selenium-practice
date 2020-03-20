@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]">
+  <test name="Test1(failed)">
+    <classes>
+      <class name="Exdp.exdptest">
+        <methods>
+          <include name="initiateDriver"/>
+        </methods>
+      </class> <!-- Exdp.exdptest -->
+      <class name="Exdp.second">
+        <methods>
+          <include name="initiateDriver"/>
+          <include name="secondcheckqant"/>
+          <include name="secondcheckstopprice"/>
+          <include name="secondCheckpriceField"/>
+        </methods>
+      </class> <!-- Exdp.second -->
+    </classes>
+  </test> <!-- Test1(failed) -->
+</suite> <!-- Failed suite [Suite] -->
