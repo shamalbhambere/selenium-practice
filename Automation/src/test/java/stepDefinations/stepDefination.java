@@ -6,6 +6,9 @@ import cucumber.api.java.en.When;
 import cucumber.api.java.en.Then;
 
 import cucumber.api.junit.Cucumber;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+import java.util.concurrent.TimeUnit;
 
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
@@ -16,11 +19,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class stepDefination {
  
 	 WebDriver driver;
-    @Given("^User is on NetBanking landing page$")
+    @Given("^User is on Facebook login page$")
     public void user_is_on_netbanking_landing_page() throws Throwable {
        //write a code to navigate login url
-    	System.setProperty("webdriver.chrome.driver", "C:\\WorkDriver\\chromedriver_win32\\chromedriver.exe");
-    	driver=new ChromeDriver();
+    	//System.setProperty("webdriver.chrome.driver", "C:\\Users\\shama\\Downloads\\chromedriver_win32\\chromedriver.exe");
+    	WebDriverManager.chromedriver().setup();
+    	WebDriver driver=new ChromeDriver();
+    	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    	
     	driver.get("https://www.facebook.com/");
     	
     }

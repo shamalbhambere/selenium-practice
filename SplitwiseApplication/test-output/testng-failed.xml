@@ -7,7 +7,9 @@
         <methods>
           <include name="TearDown"/>
           <include name="setUp"/>
+          <include name="validateHomePageTitleTest"/>
           <include name="splitExpense"/>
+          <include name="createGroupTest"/>
         </methods>
       </class> <!-- com.qa.test.HomePageTest -->
     </classes>

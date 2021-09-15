@@ -22,5 +22,4 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 .metadata/**
-.metadata/.plugins/org.eclipse.ltk.core.refactoring/.refactorings/Log4jTutorial/2019/7/28/refactorings.index
 /.metadata/

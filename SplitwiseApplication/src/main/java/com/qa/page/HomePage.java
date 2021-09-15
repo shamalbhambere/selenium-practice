@@ -15,7 +15,7 @@ public class HomePage extends BaseTest {
 	WebElement SkipPage;
 	
 	//@FindBy(xpath = "//a[@href ='#invite_friends']")
-	@FindBy(xpath = "//input[@id='group_memberships_attributes_2_user_attributes_name']")
+	@FindBy(xpath = "//input[@id='group_memberships_attributes_1_user_attributes_email']")
 	WebElement AddFriendsEmail;
 	
 	@FindBy(xpath ="//a[@class ='btn btn-large btn-orange']")
@@ -57,7 +57,7 @@ public class HomePage extends BaseTest {
 	@FindBy(xpath = "//button[@class='btn btn-large btn-mint submit']")
 	WebElement expenseSaveButton;
 	
-	@FindBy(xpath ="//input[@id='group_memberships_attributes_2_user_attributes_name']")
+	@FindBy(xpath ="//input[@id='group_memberships_attributes_1_user_attributes_name']")
 	WebElement groupMemberName;
 	
 	public HomePage() {
@@ -74,8 +74,8 @@ public class HomePage extends BaseTest {
 		GroupName.sendKeys("Water Park");
 		executor.executeScript("arguments[0].click();", groupMemberName);
 		groupMemberName.sendKeys("Amit Metkar");
-//		groupMemberName.sendKeys(Keys.DOWN);
-//		groupMemberName.click();
+		groupMemberName.sendKeys(Keys.DOWN);
+		groupMemberName.click();
 		executor.executeScript("arguments[0].click();", AddFriendsEmail);
 		AddFriendsEmail.sendKeys("amit.metkar@gmail.com");
 		executor.executeScript("arguments[0].click();", SelectDrop);

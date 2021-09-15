@@ -7,6 +7,8 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+
+
 public class BaseTest {
 	
 	public static WebDriver driver;
@@ -23,7 +25,7 @@ public class BaseTest {
 		}
 	}
 
-	public void initialization() {
+	public void initialization() throws InterruptedException {
 		if(prop.getProperty("browser").equals("chrome")) {
 			System.setProperty("webdriver.chrome.driver", "C:\\WorkDriver\\chromedriver_win32\\chromedriver.exe");
 			driver = new ChromeDriver();
@@ -33,6 +35,7 @@ public class BaseTest {
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 		driver.get(prop.getProperty("url"));
+		    
 	}
 	
 }
